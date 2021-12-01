@@ -7,7 +7,17 @@ struct Person
     char password[255];
 } Person;
 
-int login(char username, char password)
+int hashValue(char *pass, int size)
+{
+    int value = 0;
+    for (int i = 0; i < sizeof(pass) / sizeof(pass[0]); i++)
+    {
+        value += pass[i];
+    }
+    return value % size;
+}
+
+int login(char username[], char password[])
 {
 }
 
