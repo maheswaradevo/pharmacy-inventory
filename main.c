@@ -7,6 +7,10 @@ struct Person
     char password[255];
 } Person;
 
+int login(char username, char password)
+{
+}
+
 int main()
 {
     int res;
