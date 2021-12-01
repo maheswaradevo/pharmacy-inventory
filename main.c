@@ -7,6 +7,19 @@ struct Person
     char password[255];
 } Person;
 
+struct dateExp
+{
+    int date;
+    int month;
+    int year;
+} dateExp;
+
+struct Item
+{
+    char itemName[255];
+    struct dateExp;
+} Item;
+
 int main()
 {
     int res;
