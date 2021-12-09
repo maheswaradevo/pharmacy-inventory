@@ -20,6 +20,35 @@ struct Item
     struct dateExp;
 } Item;
 
+void createacc(){
+    char user[255];
+    char pwd[255];
+    File *fptr, *fptr2;
+    
+    fptr = fopen("username.txt", "w");
+    printf("Masukkan username : ");
+    fgets(user, sizeof(user), stdin);
+    fputs(user, fptr);
+    fclose(fptr);
+    
+    fptr2 = fopen("password.txt", "w");
+    printf("Masukkan password : ");
+    fgets(pass, sizeof(pass), stdin);
+    fputs(pass, fptr2);
+    fclose(fptr2);
+    
+    if((fptr = fopen("username.txt", "r")) && (fptr2 = fopen("password.txt", "r")) != NULL){
+        printf("Berhasil membuat akun!");
+        fclose(fptr);
+        fclose(fptr2);
+    }else{
+        printf("Error: File gagal dibuat!");
+    }
+
+
+    
+    
+
 int main()
 {
     int res;
