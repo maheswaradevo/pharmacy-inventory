@@ -44,6 +44,7 @@ void createacc(){
     }else{
         printf("Error: File gagal dibuat!");
     }
+}
 
 
     
