@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct Person
 {
@@ -19,6 +20,10 @@ int hashValue(char *pass, int size)
 
 int login(char username[], char password[])
 {
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
+        return 1;
+    else
+        return 0;
 }
 
 int main()
@@ -32,8 +37,10 @@ int main()
     printf("      Login      \n");
     printf("=================\n");
     printf("Username : ");
+    fflush(stdin);
     scanf("%[^\n]s", &p.username);
     printf("Password : ");
+    fflush(stdin);
     scanf("%[^\n]s", &p.password);
     res = login(p.username, p.password);
     if (res == 1)
