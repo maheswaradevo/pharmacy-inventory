@@ -8,7 +8,6 @@ struct Person
     char password[255];
 } Person;
 
-
 int hashValue(char *pass, int size)
 {
     int value = 0;
@@ -25,7 +24,7 @@ int login(char username[], char password[])
         return 1;
     else
         return 0;
-  
+}
 struct dateExp
 {
     int date;
@@ -38,7 +37,7 @@ struct Item
     char itemName[255];
     struct dateExp;
 } Item;
-  
+
 int hashValue(char *pass, int size)
 {
     int value = 0;
@@ -55,6 +54,8 @@ int login(char username[], char password[])
         return 1;
     else
         return 0;
+}
+
 void createacc()
 {
     char user[255];
@@ -84,7 +85,6 @@ void createacc()
         printf("Error: File gagal dibuat!");
     }
 }
-  
 
 int main()
 {
