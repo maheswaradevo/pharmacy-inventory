@@ -50,7 +50,7 @@ int isFull()
         return 0;
 }
 
-void push(char itemName[255], char date[255], char month[255], char year[255])
+void push(char *itemName[255], char *date[255], char *month[255], char *year[255])
 {
     if (isFull())
         printf("Stack sudah penuh!\n");
@@ -90,16 +90,6 @@ void display()
     }
 }
 
-int hashValue(char *pass, int size)
-{
-    int value = 0;
-    for (int i = 0; i < sizeof(pass) / sizeof(pass[0]); i++)
-    {
-        value += pass[i];
-    }
-    return value % size;
-}
-
 int login(char username[], char password[])
 {
     if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
@@ -107,18 +97,6 @@ int login(char username[], char password[])
     else
         return 0;
 }
-struct dateExp
-{
-    int date;
-    int month;
-    int year;
-} dateExp;
-
-struct Item
-{
-    char itemName[255];
-    struct dateExp;
-} Item;
 
 int hashValue(char *pass, int size)
 {
@@ -130,13 +108,6 @@ int hashValue(char *pass, int size)
     return value % size;
 }
 
-int login(char username[], char password[])
-{
-    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
-        return 1;
-    else
-        return 0;
-}
 void createacc()
 {
     char user[255];
