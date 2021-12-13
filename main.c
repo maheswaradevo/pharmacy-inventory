@@ -100,19 +100,6 @@ int hashValue(char *pass, int size)
     return value % size;
 }
 
-struct dateExp
-{
-    int date;
-    int month;
-    int year;
-} dateExp;
-
-struct Item
-{
-    char itemName[255];
-    struct dateExp;
-} Item;
-
 void createacc()
 {
     char user[255];
@@ -143,9 +130,17 @@ void createacc()
     }
 }
 
+int login(char username[], char password[])
+{
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
+        return 1;
+    else
+        return 0;
+}
+
 int main()
 {
-    int res;
+    int res, ch;
     struct Person p;
     printf("Pharmacy Inventory\n");
 
@@ -159,8 +154,10 @@ int main()
     printf("Password : ");
     fflush(stdin);
     scanf("%[^\n]s", &p.password);
+    res = login(p.username, p.password);
     if (res == 1)
     {
+        system("cls");
         printf("================\n");
         printf("  Menu Program  \n");
         printf("================\n");
@@ -169,6 +166,7 @@ int main()
         printf("4. Display Barang\n");
         printf("3. Sort Barang  \n");
         printf("Masukkan Pilihan : ");
+        scanf("%d", &ch);
     }
     else
     {
