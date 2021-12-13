@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct Person
 {
@@ -7,6 +8,24 @@ struct Person
     char password[255];
 } Person;
 
+
+int hashValue(char *pass, int size)
+{
+    int value = 0;
+    for (int i = 0; i < sizeof(pass) / sizeof(pass[0]); i++)
+    {
+        value += pass[i];
+    }
+    return value % size;
+}
+
+int login(char username[], char password[])
+{
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
+        return 1;
+    else
+        return 0;
+  
 struct dateExp
 {
     int date;
@@ -19,7 +38,23 @@ struct Item
     char itemName[255];
     struct dateExp;
 } Item;
+  
+int hashValue(char *pass, int size)
+{
+    int value = 0;
+    for (int i = 0; i < sizeof(pass) / sizeof(pass[0]); i++)
+    {
+        value += pass[i];
+    }
+    return value % size;
+}
 
+int login(char username[], char password[])
+{
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
+        return 1;
+    else
+        return 0;
 void createacc()
 {
     char user[255];
@@ -49,6 +84,7 @@ void createacc()
         printf("Error: File gagal dibuat!");
     }
 }
+  
 
 int main()
 {
@@ -61,8 +97,10 @@ int main()
     printf("      Login      \n");
     printf("=================\n");
     printf("Username : ");
+    fflush(stdin);
     scanf("%[^\n]s", &p.username);
     printf("Password : ");
+    fflush(stdin);
     scanf("%[^\n]s", &p.password);
     res = login(p.username, p.password);
     if (res == 1)
