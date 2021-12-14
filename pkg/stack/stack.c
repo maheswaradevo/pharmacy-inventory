@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <string.h>
 #include "../../adt/adt.h"
-#define MAX 50
+
 void initiate()
 {
     s.top = -1;
