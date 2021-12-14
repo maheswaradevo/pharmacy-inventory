@@ -1,4 +1,6 @@
 #ifndef STACK_DOT_H
 #define STACK_DOT_H
-#include "./stack.c"
+#include <stdio.h>
+#include <string.h>
+#define MAX 50
 #endif
