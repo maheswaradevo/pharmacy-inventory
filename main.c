@@ -50,7 +50,8 @@ int isFull()
         return 0;
 }
 
-void push(char *itemName[255], char *date[255], char *month[255], char *year[255])
+
+void push(char itemName[255], int date, int month, int year)
 {
     if (isFull())
         printf("Stack sudah penuh!\n");
@@ -58,9 +59,9 @@ void push(char *itemName[255], char *date[255], char *month[255], char *year[255
     {
         s.top++;
         strcpy(b[s.top].itemName, itemName);
-        strcpy(b[s.top].exp.date, date);
-        strcpy(b[s.top].exp.month, month);
-        strcpy(b[s.top].exp.year, year);
+        b[s.top].exp.date = date;
+        b[s.top].exp.month = month;
+        b[s.top].exp.year = year;
         printf("Barang %s sudah dimasukkan", itemName);
     }
 }
@@ -85,7 +86,7 @@ void display()
         for (int i = s.top; i >= 0; i--)
         {
             printf("Item Name : %s\n", b[i].itemName);
-            printf("Expired : %s/%s/%s\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
+            printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
 }
@@ -138,9 +139,17 @@ void createacc()
     }
 }
 
+int login(char username[], char password[])
+{
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
+        return 1;
+    else
+        return 0;
+}
+
 int main()
 {
-    int res;
+    int res, ch;
     struct Person p;
     printf("Pharmacy Inventory\n");
 
@@ -154,8 +163,10 @@ int main()
     printf("Password : ");
     fflush(stdin);
     scanf("%[^\n]s", &p.password);
+    res = login(p.username, p.password);
     if (res == 1)
     {
+        system("cls");
         printf("================\n");
         printf("  Menu Program  \n");
         printf("================\n");
@@ -164,6 +175,7 @@ int main()
         printf("4. Display Barang\n");
         printf("3. Sort Barang  \n");
         printf("Masukkan Pilihan : ");
+        scanf("%d", &ch);
     }
     else
     {
