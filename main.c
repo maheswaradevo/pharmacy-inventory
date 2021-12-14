@@ -42,7 +42,48 @@ int hashValue(char *pass, int size)
     return value % size;
 }
 
-int createAcc(){
+//Prototype Function of User
+int createUserAcc();
+int loginUserAcc();
+
+//Prototype Function of Admin
+int loginAdminAcc();
+
+int main()
+{
+    int res;
+    struct Person p;
+    printf("Pharmacy Inventory\n");
+
+    //Login menu to user or admin
+    printf("=================\n");
+    printf("      Login      \n");
+    printf("=================\n");
+    printf("Username : ");
+    fflush(stdin);
+    scanf("%[^\n]s", &p.username);
+    printf("Password : ");
+    fflush(stdin);
+    scanf("%[^\n]s", &p.password);
+    res = login(p.username, p.password);
+    if (res == 1)
+    {
+        printf("================\n");
+        printf("  Menu Program  \n");
+        printf("================\n");
+        printf("1. Input Barang \n");
+        printf("2. Ambil Barang \n");
+        printf("3. Sort Barang  \n");
+        printf("Masukkan Pilihan : ");
+    }
+    else
+    {
+        //User get inventory display (view only)
+    }
+    return 0;
+}
+
+int createUserAcc(){
     system("cls");
     int ID, yakin;
     char password[255], passRepeat[255];
@@ -82,7 +123,7 @@ int createAcc(){
     return 0;
 }
 
-int loginAcc(){
+int loginUserAcc(){
     system("cls");
     int ID;
     char password[255];
@@ -127,36 +168,32 @@ int loginAcc(){
     }
 }
 
-int main()
-{
-    int res;
-    struct Person p;
-    printf("Pharmacy Inventory\n");
-
-    //Login menu to user or admin
-    printf("=================\n");
-    printf("      Login      \n");
-    printf("=================\n");
-    printf("Username : ");
+int loginAdminAcc(){
+    system("cls");
+    char ID[255];
+    char password[255];
+    char *token;
+    
+    printf("|*|---------------------------------|*|\n");
+    printf("|*|        PHARMACY INVENTORY       |*|\n");
+    printf("|*|---------------------------------|*|\n");
+    printf("|*|--------------ADMIN--------------|*|\n");
+    printf("|*|---------------------------------|*|\n");
+    printf("|*|            LOGIN AKUN           |*|\n");
+    printf("|*|---------------------------------|*|\n");
+	
+    printf("|*| Masukkan ID : ");
+    fgets(ID, sizeof(ID), stdin);
     fflush(stdin);
-    scanf("%[^\n]s", &p.username);
-    printf("Password : ");
-    fflush(stdin);
-    scanf("%[^\n]s", &p.password);
-    res = login(p.username, p.password);
-    if (res == 1)
-    {
-        printf("================\n");
-        printf("  Menu Program  \n");
-        printf("================\n");
-        printf("1. Input Barang \n");
-        printf("2. Ambil Barang \n");
-        printf("3. Sort Barang  \n");
-        printf("Masukkan Pilihan : ");
+    printf("|*| Masukkan password : ");
+    fgets(password, sizeof(password), stdin);
+    
+    if(ID == "admin" && password == "admin){
+        printf("|*| Login Sukses!\n");
+        return 1;
     }
-    else
-    {
-        //User get inventory display (view only)
+    else{
+    	printf("|+| Username atau Password salah!\n");
+	return 0;
     }
-    return 0;
 }
