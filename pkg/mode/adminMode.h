@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-int adminMode();
+// int adminMode();
 
 #endif
