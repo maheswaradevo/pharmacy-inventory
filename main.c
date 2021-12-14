@@ -1,20 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include "pkg/stack/stack.h"
 #include "pkg/auth/login.h"
 #include "adt/adt.h"
-#define MAX 50
 
-//PROTOTYPE FUNCTION OF ADMIN
-// int adminMode();
-// int loginAdminAcc();
-
-// //PROTOTYPE FUNCTION OF USER
-// int userMode();
-// int createUserAcc();
-// int loginUserAcc();
 
 //START OF MAIN FUNCTION
 int main()
@@ -57,7 +47,7 @@ int main()
             scanf("%c", &acc);
             if (acc == 'Y' && acc == 'y')
             { //if user already have account
-            loginUser:
+                loginUser:
                 loginUser = loginUserAcc();
                 if (loginUser == 1)
                 {
