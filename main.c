@@ -188,7 +188,7 @@ int loginAdminAcc(){
     printf("|*| Masukkan password : ");
     fgets(password, sizeof(password), stdin);
     
-    if(ID == "admin" && password == "admin){
+    if(ID == "admin" && password == "admin"){
         printf("|*| Login Sukses!\n");
         return 1;
     }
