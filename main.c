@@ -3,8 +3,8 @@
 #include <string.h>
 #include "pkg/stack/stack.h"
 #include "pkg/auth/login.h"
-#include "pkg/mode/adminMode.h"
-#include "pkg/mode/userMode.h"
+#include "pkg/mode/adminmode.h"
+#include "pkg/mode/usermode.h"
 #include "adt/adt.h"
 
 //START OF MAIN FUNCTION
