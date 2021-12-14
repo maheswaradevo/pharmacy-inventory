@@ -3,8 +3,7 @@
 Program inventory/stok persediaan pada sebuah apotek menggunakan bahasa C
 Sebagai final project untuk mata kuliah Praktikum Struktur Data pada Semester 3.
 
-**Dibuat oleh Kelompok B-1**
-**Program Studi Informatika, Fakultas MIPA, Universitas Udayana**
+**Dibuat oleh Kelompok B-1, Program Studi Informatika, Fakultas MIPA, Universitas Udayana**
 
 **Anggota Kelompok :**
 1. [Pande Putu Devo Punda Maheswara](https://github.com/maheswaradevo/) (2008561107)
