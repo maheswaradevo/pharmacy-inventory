@@ -9,6 +9,7 @@ int hashValue(char *pass, int size)
     }
     return value & size;
 }
+
 //START OF ADMIN'S FUNCTION
 int loginAdminAcc()
 {
@@ -27,12 +28,11 @@ int loginAdminAcc()
 
     printf("|*| Masukkan ID : ");
     fflush(stdin);
-    fgets(ID, sizeof(ID), stdin);
+    gets(ID);
     printf("|*| Masukkan password : ");
     fflush(stdin);
-    fgets(password, sizeof(password), stdin);
-
-    if (strcmp(ID, "admin") && strcmp(password, "admin"))
+	gets(password);
+    if (strcmp(ID, "admin") == 0 && strcmp(password, "admin") == 0)
     {
         printf("|*| Login Sukses!\n");
         return 1;
@@ -40,6 +40,7 @@ int loginAdminAcc()
     else
     {
         printf("|+| Username atau Password salah!\n");
+        printf("|*| "); system("pause");
         return 0;
     }
 }
@@ -78,7 +79,7 @@ int createUserAcc()
         }
         else
         {
-            printf("|*|Password tidak sesuai dengan sebelumnya, masukan kembali! \n");
+            printf("|*| Password tidak sesuai dengan sebelumnya, masukan kembali! \n");
         }
     }
 
@@ -138,6 +139,7 @@ int loginUserAcc()
     if (token == NULL)
     {
         printf("|+| Username atau Password salah!\n");
+        printf("|*| "); system("pause");
         return 0;
     }
 }
