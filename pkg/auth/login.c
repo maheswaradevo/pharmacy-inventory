@@ -86,7 +86,7 @@ int createUserAcc()
     //Write to CSV File BEGIN
     FILE *fptr;
     fptr = fopen("accountForUser.csv", "a");
-    fprintf(fptr, "%d,0,%s", ID, password);
+    fprintf(fptr, "%d,%s", ID, password);
     fclose(fptr);
 
     return 0;
@@ -124,7 +124,6 @@ int loginUserAcc()
         {
             if ((ID == atoi(token)) && (ID / 100000 == 20))
             {
-                token = strtok(NULL, ",");
                 token = strtok(NULL, ",");
                 if (strcmp(token, password) == 0)
                 {
