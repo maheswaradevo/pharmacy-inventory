@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 struct Person
 {
@@ -18,13 +19,6 @@ int hashValue(char *pass, int size)
     return value % size;
 }
 
-int login(char username[], char password[])
-{
-    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
-        return 1;
-    else
-        return 0;
-}
 struct dateExp
 {
     int date;
@@ -48,41 +42,89 @@ int hashValue(char *pass, int size)
     return value % size;
 }
 
-int login(char username[], char password[])
-{
-    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
-        return 1;
-    else
-        return 0;
+int createAcc(){
+	system("cls");
+	int ID, yakin;
+    char password[255], passRepeat[255];
+    
+    printf("|*|--------------------------------|*|\n");
+    printf("|*|       PHARMACY INVENTORY       |*|\n");
+    printf("|*|--------------------------------|*|\n");
+    printf("|*|--------------USER--------------|*|\n");
+    printf("|*|--------------------------------|*|\n");
+    printf("|*|          CREATE AKUN           |*|\n");
+    printf("|*|--------------------------------|*|\n");
+	
+	srand(time(0));
+	ID = (10*200000)+(rand()%100000);
+	printf("|*| ID: %d (harap ingat ID ini baik-baik!)\n", ID);
+	printf("|*| Masukan password : ");
+	fflush(stdin);
+	fgets(password, sizeof(password), stdin);
+	while(1){
+	    printf("|*| Masukan kembali password : ");
+	    fgets(passRepeat, sizeof(passRepeat), stdin);
+	    if (strcmp(passRepeat, password) == 0){
+	        printf("|*| Akun berhasil dibuat!\n");
+	        break;
+	    }else{
+	        printf("|*|Password tidak sesuai dengan sebelumnya, masukan kembali! \n");
+	    }
+	}
+	
+	//Write to database BEGIN
+	FILE *fptr;
+	fptr = fopen("accountForUser.csv", "a");
+    fprintf(fptr, "%d,0,%s", ID, password);
+    fclose(fptr);
+    //Write to database END
+    
+    system("pause");
+    return 0;
 }
 
-void createacc()
-{
-    char user[255];
-    char pwd[255];
-    FILE *fptr, *fptr2;
+int loginAcc(){
+    system("cls");
+    int ID;
+    char password[255];
+    char *token;
+    
+    printf("|*|--------------------------------|*|\n");
+    printf("|*|       PHARMACY INVENTORY       |*|\n");
+    printf("|*|--------------------------------|*|\n");
+    printf("|*|--------------USER--------------|*|\n");
+    printf("|*|--------------------------------|*|\n");
+    printf("|*|           LOGIN AKUN           |*|\n");
+    printf("|*|--------------------------------|*|\n");
+	
+    printf("|*| Masukkan ID : ");
+	scanf("%d", &ID);
+	fflush(stdin);
+    printf("|*| Masukkan password : ");
+    fgets(password, sizeof(password), stdin);
+    
+    FILE *fptr;
+    fptr = fopen("accountForUser.csv", "r");
 
-    fptr = fopen("username.txt", "w");
-    printf("Masukkan username : ");
-    fgets(user, sizeof(user), stdin);
-    fputs(user, fptr);
-    fclose(fptr);
-
-    fptr2 = fopen("password.txt", "w");
-    printf("Masukkan password : ");
-    fgets(pwd, sizeof(pwd), stdin);
-    fputs(pwd, fptr2);
-    fclose(fptr2);
-
-    if ((fptr = fopen("username.txt", "r")) && (fptr2 = fopen("password.txt", "r")) != NULL)
-    {
-        printf("Berhasil membuat akun!");
-        fclose(fptr);
-        fclose(fptr2);
+    char akun[100];
+    while (fgets(akun, sizeof(akun), fptr)){
+    	token = strtok(akun, ",");
+        while (token != NULL){
+			if ((ID == atoi(token)) && (ID / 100000 == 20)){
+				token = strtok(NULL, ",");
+				token = strtok(NULL, ",");
+	            if(strcmp(token, password) == 0){
+	                fclose(fptr);
+	                printf("|*| Login Sukses!\n");
+	                return 1;
+	            }
+	        }
+            token = strtok(NULL, ",");
+        }
     }
-    else
-    {
-        printf("Error: File gagal dibuat!");
+    if (token == NULL){
+        printf("|+| Username atau Password salah!\n");
+        return 0;
     }
 }
 
