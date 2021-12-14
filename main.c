@@ -49,37 +49,54 @@ int loginUserAcc();
 //Prototype Function of Admin
 int loginAdminAcc();
 
-int main()
-{
-    int res;
-    struct Person p;
-    printf("Pharmacy Inventory\n");
-
-    //Login menu to user or admin
-    printf("=================\n");
-    printf("      Login      \n");
-    printf("=================\n");
-    printf("Username : ");
-    fflush(stdin);
-    scanf("%[^\n]s", &p.username);
-    printf("Password : ");
-    fflush(stdin);
-    scanf("%[^\n]s", &p.password);
-    res = login(p.username, p.password);
-    if (res == 1)
-    {
-        printf("================\n");
-        printf("  Menu Program  \n");
-        printf("================\n");
-        printf("1. Input Barang \n");
-        printf("2. Ambil Barang \n");
-        printf("3. Sort Barang  \n");
-        printf("Masukkan Pilihan : ");
-    }
-    else
-    {
-        //User get inventory display (view only)
-    }
+int main(){
+    int menu;
+	
+    do{
+    	printf("|+|----------------------------------|+|\n");
+    	printf("|+|     |   PHARMACY INVENTORY  |    |+|\n");
+    	printf("|+|----------------------------------|+|\n");
+    	printf("|+|     |    1. ADMIN           |    |+|\n");
+    	printf("|+|----------------------------------|+|\n");
+    	printf("|+|     |    2. USER            |    |+|\n");
+    	printf("|+|----------------------------------|+|\n");
+    	printf("|+|     |    3. EXIT            |    |+|\n");
+    	printf("|+|----------------------------------|+|\n");
+        printf("|+| Pilih Menu : ");
+        scanf("%d", &menu);
+	
+	//Admin
+    	if(menu == 1){
+	    loginAdmin:
+	    int loginAdmin = 0;
+            loginAdmin = loginAdminAcc();
+	    if (loginAdmin == 1){
+	        //Login success and go to user menu
+	    }
+	    else{
+                //Login failed and go to login again
+		goto loginAdmin;
+	    }
+	else if(menu == 2){
+	    loginUser:
+	    int loginUser = 0;
+            loginUser = loginUserAcc();
+	    if (loginUser == 1){
+	        //Login success and go to user menu
+	    }
+	    else{
+                //Login failed and go to login again
+		goto loginUser;
+	    }
+	else if(menu == 3){
+	    exit(0);
+	}
+	else{
+	    printf("|+| Input tidak ada dalam menu!\n");
+	}
+    printf("\n|+| Press enter to continue...");
+    }while(getchar());
+    
     return 0;
 }
 
@@ -118,8 +135,7 @@ int createUserAcc(){
     fptr = fopen("accountForUser.csv", "a");
     fprintf(fptr, "%d,0,%s", ID, password);
     fclose(fptr);
-    
-    system("pause");
+	
     return 0;
 }
 
