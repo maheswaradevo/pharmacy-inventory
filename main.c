@@ -46,6 +46,7 @@ int main()
         }
         else if (menu == 2)
         {
+
             Acc:
             printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
             scanf("%c", &acc);
@@ -81,4 +82,5 @@ int main()
         printf("\n|+| Press enter to continue...");
     } while (getchar());
 }
+
 //END MAIN FUNCTION
