@@ -50,6 +50,7 @@ int isFull()
         return 0;
 }
 
+
 void push(char itemName[255], int date, int month, int year)
 {
     if (isFull())
@@ -88,6 +89,14 @@ void display()
             printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
+}
+
+int login(char username[], char password[])
+{
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0))
+        return 1;
+    else
+        return 0;
 }
 
 int hashValue(char *pass, int size)
