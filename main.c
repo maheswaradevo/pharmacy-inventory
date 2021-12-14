@@ -103,7 +103,8 @@ int loginUserAcc();
 
 //START OF MAIN FUNCTION
 int main(){
-    int menu;
+    int menu, loginAdmin, loginUser;
+    char acc;
 	
     do{
 	system("cls");
@@ -122,7 +123,6 @@ int main(){
 	//Admin
     	if(menu == 1){
 	    loginAdmin:
-	    int loginAdmin = 0;
             loginAdmin = loginAdminAcc();
 	    if (loginAdmin == 1){
 	        //Login success and go to admin menu
@@ -133,13 +133,11 @@ int main(){
 		goto loginAdmin;
 	    }
 	else if(menu == 2){
-	    char acc;
 	    Acc:
 	    printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
 	    scanf("%c", &acc);
 	    if(acc == 'Y' && acc == 'y'){ //if user already have account
 	        loginUser:
-	        int loginUser = 0;
                 loginUser = loginUserAcc();
 	        if (loginUser == 1){
 	            //Login success and go to user menu
@@ -152,7 +150,7 @@ int main(){
 	    }
 	    else{ //if user don't have account
                 createUserAcc();
-		goto acc;
+		goto Acc;
 	    }
 	}
 	else if(menu == 3){
