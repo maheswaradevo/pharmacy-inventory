@@ -9,11 +9,9 @@
 int hashValue(char *pass, int size);
 
 //ADMIN
-int adminMode();
 int loginAdminAcc();
 
 //USER
-int userMode();
 int createUserAcc();
 int loginUserAcc();
 
