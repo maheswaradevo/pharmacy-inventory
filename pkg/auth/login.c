@@ -26,12 +26,13 @@ int loginAdminAcc()
     printf("|*|---------------------------------|*|\n");
 
     printf("|*| Masukkan ID : ");
-    fgets(ID, sizeof(ID), stdin);
     fflush(stdin);
+    fgets(ID, sizeof(ID), stdin);
     printf("|*| Masukkan password : ");
+    fflush(stdin);
     fgets(password, sizeof(password), stdin);
 
-    if (ID == "admin" && password == "admin")
+    if (strcmp(ID, "admin") && strcmp(password, "admin"))
     {
         printf("|*| Login Sukses!\n");
         return 1;
