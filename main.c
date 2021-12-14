@@ -25,6 +25,7 @@ int main()
         printf("|+|     |    3. EXIT            |    |+|\n");
         printf("|+|----------------------------------|+|\n");
         printf("|+| Pilih Menu : ");
+        fflush(stdin);
         scanf("%d", &menu);
 
         //Admin
