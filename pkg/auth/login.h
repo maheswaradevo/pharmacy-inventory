@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "login.c"
 
 int hashValue(char *pass, int size);
 
