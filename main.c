@@ -50,7 +50,7 @@ int isFull()
         return 0;
 }
 
-void push(char itemName[255], char date[255], char month[255], char year[255])
+void push(char itemName[255], int date, int month, int year)
 {
     if (isFull())
         printf("Stack sudah penuh!\n");
@@ -58,9 +58,9 @@ void push(char itemName[255], char date[255], char month[255], char year[255])
     {
         s.top++;
         strcpy(b[s.top].itemName, itemName);
-        strcpy(b[s.top].exp.date, date);
-        strcpy(b[s.top].exp.month, month);
-        strcpy(b[s.top].exp.year, year);
+        b[s.top].exp.date = date;
+        b[s.top].exp.month = month;
+        b[s.top].exp.year = year;
         printf("Barang %s sudah dimasukkan", itemName);
     }
 }
@@ -85,7 +85,7 @@ void display()
         for (int i = s.top; i >= 0; i--)
         {
             printf("Item Name : %s\n", b[i].itemName);
-            printf("Expired : %s/%s/%s\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
+            printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
 }
