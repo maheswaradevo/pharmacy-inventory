@@ -32,7 +32,7 @@ int loginAdminAcc()
     fflush(stdin);
     fgets(password, sizeof(password), stdin);
 
-    if (ID == "admin" && password == "admin")
+    if (strcmp(ID, "admin") && strcmp(password, "admin"))
     {
         printf("|*| Login Sukses!\n");
         return 1;
