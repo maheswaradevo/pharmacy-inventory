@@ -3,8 +3,8 @@
 #include <string.h>
 #include "pkg/stack/stack.h"
 #include "pkg/auth/login.h"
-#include "pkg/mode/adminmode.h"
-#include "pkg/mode/usermode.h"
+#include "pkg/mode/adminMode.h"
+#include "pkg/mode/userMode.h"
 #include "adt/adt.h"
 
 //START OF MAIN FUNCTION
@@ -12,14 +12,6 @@ int main()
 {
     int menu, loginAdmin, loginUser;
     char acc;
-    //PROTOTYPE FUNCTION OF ADMIN
-    int adminMode();
-    int loginAdminAcc();
-
-    //PROTOTYPE FUNCTION OF USER
-    int userMode();
-    int createUserAcc();
-    int loginUserAcc();
     do
     {
         system("cls");
@@ -87,18 +79,5 @@ int main()
         }
         printf("\n|+| Press enter to continue...");
     } while (getchar());
-
-    //END MAIN FUNCTION
-
-    int hashValue(char *pass, int size)
-    {
-        int value = 0;
-        for (int i = 0; i < sizeof(pass) / sizeof(pass[0]); i++)
-        {
-            value += pass[i];
-        }
-        return value & size;
-    }
-    return 0;
 }
 //END MAIN FUNCTION
