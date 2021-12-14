@@ -43,8 +43,8 @@ int hashValue(char *pass, int size)
 }
 
 int createAcc(){
-	system("cls");
-	int ID, yakin;
+    system("cls");
+    int ID, yakin;
     char password[255], passRepeat[255];
     
     printf("|*|--------------------------------|*|\n");
@@ -55,29 +55,28 @@ int createAcc(){
     printf("|*|          CREATE AKUN           |*|\n");
     printf("|*|--------------------------------|*|\n");
 	
-	srand(time(0));
-	ID = (10*200000)+(rand()%100000);
-	printf("|*| ID: %d (harap ingat ID ini baik-baik!)\n", ID);
-	printf("|*| Masukan password : ");
-	fflush(stdin);
-	fgets(password, sizeof(password), stdin);
-	while(1){
-	    printf("|*| Masukan kembali password : ");
-	    fgets(passRepeat, sizeof(passRepeat), stdin);
-	    if (strcmp(passRepeat, password) == 0){
-	        printf("|*| Akun berhasil dibuat!\n");
-	        break;
-	    }else{
-	        printf("|*|Password tidak sesuai dengan sebelumnya, masukan kembali! \n");
-	    }
-	}
+    srand(time(0));
+    ID = (10*200000)+(rand()%100000);
+    printf("|*| ID: %d (harap ingat ID ini baik-baik!)\n", ID);
+    printf("|*| Masukan password : ");
+    fflush(stdin);
+    fgets(password, sizeof(password), stdin);
+    while(1){
+         printf("|*| Masukan kembali password : ");
+	 fgets(passRepeat, sizeof(passRepeat), stdin);
+	 if (strcmp(passRepeat, password) == 0){
+	      printf("|*| Akun berhasil dibuat!\n");
+	      break;
+	 }else{
+	      printf("|*|Password tidak sesuai dengan sebelumnya, masukan kembali! \n");
+	 }
+    }
 	
-	//Write to database BEGIN
-	FILE *fptr;
-	fptr = fopen("accountForUser.csv", "a");
+    //Write to CSV File BEGIN
+    FILE *fptr;
+    fptr = fopen("accountForUser.csv", "a");
     fprintf(fptr, "%d,0,%s", ID, password);
     fclose(fptr);
-    //Write to database END
     
     system("pause");
     return 0;
@@ -98,8 +97,8 @@ int loginAcc(){
     printf("|*|--------------------------------|*|\n");
 	
     printf("|*| Masukkan ID : ");
-	scanf("%d", &ID);
-	fflush(stdin);
+    scanf("%d", &ID);
+    fflush(stdin);
     printf("|*| Masukkan password : ");
     fgets(password, sizeof(password), stdin);
     
@@ -110,16 +109,16 @@ int loginAcc(){
     while (fgets(akun, sizeof(akun), fptr)){
     	token = strtok(akun, ",");
         while (token != NULL){
-			if ((ID == atoi(token)) && (ID / 100000 == 20)){
-				token = strtok(NULL, ",");
-				token = strtok(NULL, ",");
-	            if(strcmp(token, password) == 0){
-	                fclose(fptr);
-	                printf("|*| Login Sukses!\n");
-	                return 1;
-	            }
-	        }
-            token = strtok(NULL, ",");
+             if ((ID == atoi(token)) && (ID / 100000 == 20)){
+                 token = strtok(NULL, ",");
+		 token = strtok(NULL, ",");
+	         if(strcmp(token, password) == 0){
+	              fclose(fptr);
+	              printf("|*| Login Sukses!\n");
+	              return 1;
+	         }
+	     }
+             token = strtok(NULL, ",");
         }
     }
     if (token == NULL){
