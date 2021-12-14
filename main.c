@@ -76,9 +76,3 @@ int main(){
 
 }
 //END MAIN FUNCTION
-        }
-        printf("\n|+| Press enter to continue...");
-    } while (getchar());
-    return 0;
-}
-//END MAIN FUNCTION
