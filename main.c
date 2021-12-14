@@ -19,8 +19,8 @@
 //START OF MAIN FUNCTION
 int main()
 {
-    int menu;
-
+    int menu, loginAdmin, loginUser;
+    char acc;
     do
     {
         system("cls");
@@ -40,7 +40,6 @@ int main()
         if (menu == 1)
         {
         loginAdmin:
-            int loginAdmin = 0;
             loginAdmin = loginAdminAcc();
             if (loginAdmin == 1)
             {
@@ -54,13 +53,11 @@ int main()
             }
 
         Acc:
-            char acc;
             printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
             scanf("%c", &acc);
             if (acc == 'Y' && acc == 'y')
             { //if user already have account
             loginUser:
-                int loginUser = 0;
                 loginUser = loginUserAcc();
                 if (loginUser == 1)
                 {
@@ -76,7 +73,7 @@ int main()
             else
             { //if user don't have account
                 createUserAcc();
-                goto acc;
+                goto Acc;
             }
         }
         else if (menu == 3)
@@ -89,7 +86,6 @@ int main()
         }
         printf("\n|+| Press enter to continue...");
     } while (getchar());
-
     return 0;
 }
 //END MAIN FUNCTION
