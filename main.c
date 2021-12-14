@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "pkg/stack/stack.h"
 #include "pkg/auth/login.h"
 #include "adt/adt.h"
