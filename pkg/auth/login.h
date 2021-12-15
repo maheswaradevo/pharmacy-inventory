@@ -8,6 +8,9 @@
 #include "login.c"
 
 int hashValue(char *pass, int size);
+void insertToHashTable(char *pass, int token);
+void displayHashTable();
+int readFileForHashTable();
 
 //ADMIN
 int loginAdminAcc();
