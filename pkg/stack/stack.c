@@ -28,7 +28,7 @@ int isFull()
 void push(char *itemName, int date, int month, int year)
 {
     if (isFull())
-        printf("Stack sudah penuh!\n");
+        printf("|*| Data sudah penuh!\n");
     else
     {
         s.top++;
@@ -42,10 +42,10 @@ void push(char *itemName, int date, int month, int year)
 void pop()
 {
     if (isEmpty())
-        printf("Stack masih kosong!\n");
+        printf("|*| Data masih kosong!\n");
     else
     {
-        printf("Data %s sudah dihapus!\n", b[s.top].itemName);
+        printf("|*| Data %s sudah dihapus!\n", b[s.top].itemName);
         s.top--;
     }
 }
@@ -53,13 +53,13 @@ void pop()
 void displayStack()
 {
     if (isEmpty())
-        printf("Stack masih kosong!\n");
+        printf("|*| Data masih kosong!\n");
     else
     {
         for (int i = s.top; i >= 0; i--)
         {
-            printf("Item Name : %s\n", b[i].itemName);
-            printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
+            printf("|*| Item Name : %s\n", b[i].itemName);
+            printf("|*| Expired : %d/%d/%d\n\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
 }
