@@ -12,5 +12,4 @@ Sebagai final project untuk mata kuliah Praktikum Struktur Data pada Semester 3.
 4. [I Ketut Oning Pusparama](https://github.com/iktoning/) (2008561017)
 5. Wahyu Vidiadivani (2008561082)
 
-*Note :*
-*- Belum dapat menginput stok persediaan, hanya dapat menginput nama dari obat tersebut.*
+*Note : belum dapat menginput stok persediaan, hanya dapat menginput nama dari data obat tersebut.*
