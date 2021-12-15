@@ -3,12 +3,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#define SIZE 50
 struct Person
 {
     char username[255];
     char password[255];
+    int token;
 };
+struct Person *hashArray[SIZE];
+struct Person *user;
+struct Person *dummy;
 
 struct dateExp
 {
@@ -17,12 +21,13 @@ struct dateExp
     int year;
 };
 
-struct Item
+struct dataItem
 {
     char itemName[255];
+    char key;
     struct dateExp exp;
 };
-struct Item b[50];
+struct dataItem b[50];
 
 struct stack
 {

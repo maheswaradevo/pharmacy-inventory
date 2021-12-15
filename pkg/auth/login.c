@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "../../adt/adt.h"
+#include <malloc.h>
 
 int hashValue(char *pass, int size)
 {
@@ -12,6 +14,39 @@ int hashValue(char *pass, int size)
         value += pass[i];
     }
     return value & size;
+}
+
+void insertToHashTable(char *username, char *pass, int token)
+{
+    struct Person *p = (struct Person *)malloc(sizeof(struct Person));
+    strcpy(p->username, username);
+    strcpy(p->password, pass);
+    p->token = token;
+    int hashIndex = hashValue(pass, SIZE);
+    while (hashArray[hashIndex] != NULL && hashArray[hashIndex]->password != NULL)
+    {
+        ++hashIndex;
+        hashIndex %= SIZE;
+    }
+    hashArray[hashIndex] = p;
+}
+
+void display()
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (hashArray[i] != NULL)
+        {
+            printf("Tabel ke-%d\n", i + 1);
+            printf("Token    :  %d\n", hashArray[i]->token);
+            printf("Password :  %s\n", hashArray[i]->password);
+        }
+        else
+        {
+            printf("Token :    [-----]\n");
+            printf("Password : [-----]\n");
+        }
+    }
 }
 
 //START OF ADMIN'S FUNCTION
