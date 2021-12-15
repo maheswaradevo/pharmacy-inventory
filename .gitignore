@@ -1,5 +1,3 @@
-.exe
-
 # Prerequisites
 *.d
 
@@ -54,3 +52,4 @@ Mkfile.old
 dkms.conf
 
 .vscode
+

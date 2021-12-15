@@ -1,4 +1,7 @@
 #include "adminmode.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int adminMode()
 {
@@ -6,24 +9,21 @@ int adminMode()
     int menu, pilih;
     while (1)
     {
+        system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|--------------USER-------------|*|\n");
+        printf("|*|-------------ADMIN-------------|*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        1. MENU 1              |*|\n");
+        printf("|*|      1. MENAMBAH STOK OBAT    |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        2. MENU 2              |*|\n");
+        printf("|*|      2. MENGAMBIL STOK OBAT   |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        3. MENU 3              |*|\n");
+        printf("|*|      3. LIHAT DATA OBAT       |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        4. MENU 4              |*|\n");
+        printf("|*|      4. EXIT                  |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        5. MENU 5	          |*|\n");
-        printf("|*|-------------------------------|*|\n");
-        printf("|*|        6. EXIT                |*|\n");
-        printf("|*|-------------------------------|*|\n");
-        printf("|*| Pilih Menu :");
+        printf("|*| Pilih Menu : ");
         scanf("%d", &pilih);
 
         switch (pilih)
@@ -38,15 +38,11 @@ int adminMode()
             //menu 3
             break;
         case 4:
-            //menu 4
-            break;
-        case 5:
-            //menu 5
-            break;
-        case 6:
             exit(0);
         default:
             printf("|*| Input tidak ada dalam menu!\n");
+            printf("|*| ");
+            system("pause");
         }
     }
     return 0;

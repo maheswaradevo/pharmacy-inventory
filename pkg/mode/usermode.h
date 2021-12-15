@@ -5,6 +5,4 @@
 #include <stdlib.h>
 #include "usermode.c"
 
-int userMode();
-
 #endif
