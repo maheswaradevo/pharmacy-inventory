@@ -63,3 +63,4 @@ void display()
             printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
+}

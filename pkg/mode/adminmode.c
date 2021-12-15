@@ -7,7 +7,7 @@
 int adminMode()
 {
     system("cls");
-    char barang;
+    char itemName;
     int menu, pilih, tgl, bln, thn;
     while (1)
     {
@@ -31,13 +31,12 @@ int adminMode()
         switch (pilih)
         {
         case 1:
-            printf("Masukkan nama obat :");
-            fflush(stdin);
-            scanf("%[^\n]s", &barang);
-            printf("Masukkan tanggal kedaluwarsa :");
-            fflush(stdin);
+            printf("|*| Input nama obat : ");
+            scanf("%s", &itemName);
+            printf("|*| Input tanggal kadaluwarsa obat (format : dd/mm/yyyy) : ");
             scanf("%d %d %d", &tgl, &bln, &thn);
-            push(&barang, tgl, bln, thn);
+            push(&itemName, tgl, bln, thn);
+            printf("|*| Sukses input data obat! : ");
             break;
         case 2:
             //menu 2
