@@ -10,6 +10,7 @@
 //START OF MAIN FUNCTION
 int main()
 {
+    initiate();
     int menu, loginAdmin, loginUser;
     char acc = 'y';
     do

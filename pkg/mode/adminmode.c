@@ -1,4 +1,5 @@
 #include "adminmode.h"
+#include "../stack/stack.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +7,8 @@
 int adminMode()
 {
     system("cls");
-    int menu, pilih;
+    char itemName;
+    int menu, pilih, tgl, bln, thn;
     while (1)
     {
         printf("|*|-------------------------------|*|\n");
@@ -30,13 +32,20 @@ int adminMode()
         switch (pilih)
         {
         case 1:
-            //menu 1
+            printf("|*| Input nama obat : ");
+            scanf("%s", &itemName);
+            printf("|*| Input tanggal kadaluwarsa obat (format : dd/mm/yyyy) : ");
+            scanf("%d %d %d", &tgl, &bln, &thn);
+            push(&itemName, tgl, bln, thn);
+            printf("|*| Sukses input data obat\n");
             break;
         case 2:
             //menu 2
+            pop();
             break;
         case 3:
             //menu 3
+            display();
             break;
         case 4:
             //menu 4
