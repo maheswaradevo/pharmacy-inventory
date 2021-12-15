@@ -17,10 +17,9 @@ int hashValue(char *pass, int size)
     return value & size;
 }
 
-void insertToHashTable(char *username, char *pass, int token)
+void insertToHashTable(char *pass, int token)
 {
     struct Person *p = (struct Person *)malloc(sizeof(struct Person));
-    strcpy(p->username, username);
     strcpy(p->password, pass);
     p->token = token;
     int hashIndex = hashValue(pass, SIZE);
@@ -48,6 +47,41 @@ void displayHashTable()
             printf("Password : [-----]\n");
         }
     }
+}
+
+int readFileForHashTable()
+{
+    int counter = 0;
+    char *ptr;
+    char tmp[50];
+    char password[50];
+    int token;
+    int count = 0;
+    FILE *fp = fopen("accountForUser.txt", "r");
+    if (fp == NULL)
+    {
+        printf("File tidak bisa dibuka\n");
+        exit(1);
+    }
+    while (fgets(tmp, sizeof(tmp), fp) != NULL)
+    {
+        if (strcmp(tmp, "###\n") == 0)
+        {
+            fgets(tmp, sizeof(tmp), fp);
+            sscanf(tmp, "%50[^\n]\n", &tmp);
+            fflush(stdin);
+            token = (int)strtol(tmp, &ptr, 10);
+            fgets(tmp, sizeof(tmp), fp);
+            sscanf(tmp, "%50[^\n]\n", &password);
+            fflush(stdin);
+            perArray[counter].token = token;
+            strcpy(perArray[counter].password, password);
+            insertToHashTable(password, token);
+            counter++;
+        }
+    }
+    fclose(fp);
+    return 0;
 }
 
 //START OF ADMIN'S FUNCTION
@@ -112,7 +146,7 @@ int createUserAcc()
     printf("|*| Masukan password : ");
     fflush(stdin);
     fgets(password, sizeof(password), stdin);
-    insertToHashTable(username, password, ID);
+    insertToHashTable(password, ID);
     while (1)
     {
         printf("|*| Masukan kembali password : ");
@@ -129,10 +163,14 @@ int createUserAcc()
     }
 
     //Write to CSV File BEGIN
-    FILE *fptr;
+    FILE *fptr, *fp;
     fptr = fopen("accountForUser.csv", "a");
     fprintf(fptr, "%d,%s", ID, password);
+    fp = fopen("accountForUser.txt", "a");
+    fprintf(fp, "###\n%d\n", ID);
+    fprintf(fp, "%s", password);
     fclose(fptr);
+    fclose(fp);
     return 0;
 }
 

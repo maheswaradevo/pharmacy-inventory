@@ -40,6 +40,7 @@ int adminMode()
             break;
         case 4:
             //menu 4
+            readFileForHashTable();
             displayHashTable();
         case 5:
             exit(0);

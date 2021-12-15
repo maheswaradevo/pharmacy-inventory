@@ -10,6 +10,8 @@ struct Person
     char password[255];
     int token;
 };
+struct Person p;
+struct Person perArray[20];
 struct Person *hashArray[SIZE];
 struct Person *user;
 struct Person *dummy;
