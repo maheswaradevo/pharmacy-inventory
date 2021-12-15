@@ -25,7 +25,7 @@ int isFull()
         return 0;
 }
 
-void push(char itemName[255], int date, int month, int year)
+void push(char *itemName, int date, int month, int year)
 {
     if (isFull())
         printf("Stack sudah penuh!\n");
