@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <time.h>
 #include "../../adt/adt.h"
 #include <malloc.h>
@@ -31,19 +32,19 @@ void insertToHashTable(char *username, char *pass, int token)
     hashArray[hashIndex] = p;
 }
 
-void display()
+void displayHashTable()
 {
     for (int i = 0; i < SIZE; i++)
     {
         if (hashArray[i] != NULL)
         {
             printf("Tabel ke-%d\n", i + 1);
-            printf("Token    :  %d\n", hashArray[i]->token);
+            printf("ID       :  %d\n", hashArray[i]->token);
             printf("Password :  %s\n", hashArray[i]->password);
         }
         else
         {
-            printf("Token :    [-----]\n");
+            printf("ID       : [-----]\n");
             printf("Password : [-----]\n");
         }
     }
@@ -91,7 +92,7 @@ int createUserAcc()
 {
     system("cls");
     int ID, yakin;
-    char password[255], passRepeat[255];
+    char password[255], passRepeat[255], username[255];
 
     printf("|*|--------------------------------|*|\n");
     printf("|*|       PHARMACY INVENTORY       |*|\n");
@@ -105,9 +106,13 @@ int createUserAcc()
     ID = (10 * 200000) + (rand() % 100000);
     printf("|*| Create User ID Sukses!\n");
     printf("|*| ID: %d (harap ingat ID ini baik-baik!)\n", ID);
+    printf("|*| Username         : ");
+    fflush(stdin);
+    fgets(username, sizeof(username), stdin);
     printf("|*| Masukan password : ");
     fflush(stdin);
     fgets(password, sizeof(password), stdin);
+    insertToHashTable(username, password, ID);
     while (1)
     {
         printf("|*| Masukan kembali password : ");
@@ -128,7 +133,6 @@ int createUserAcc()
     fptr = fopen("accountForUser.csv", "a");
     fprintf(fptr, "%d,%s", ID, password);
     fclose(fptr);
-
     return 0;
 }
 
