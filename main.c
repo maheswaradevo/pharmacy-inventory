@@ -14,7 +14,7 @@ int main()
     char acc = 'y';
     do
     {
-        system("cls");
+        // system("cls");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |   PHARMACY INVENTORY  |    |+|\n");
         printf("|+|----------------------------------|+|\n");

@@ -51,7 +51,7 @@ void pop()
     }
 }
 
-void display()
+void displayStack()
 {
     if (isEmpty())
         printf("Stack masih kosong!\n");
@@ -63,3 +63,4 @@ void display()
             printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
+}
