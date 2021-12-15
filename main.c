@@ -11,7 +11,7 @@
 int main()
 {
     int menu, loginAdmin, loginUser;
-    char acc;
+    char acc = 'y';
     do
     {
         system("cls");
@@ -25,13 +25,12 @@ int main()
         printf("|+|     |    3. EXIT            |    |+|\n");
         printf("|+|----------------------------------|+|\n");
         printf("|+| Pilih Menu : ");
-        fflush(stdin);
         scanf("%d", &menu);
 
         //Admin
         if (menu == 1)
         {
-            loginAdmin:
+        	loginAdmin:
             loginAdmin = loginAdminAcc();
             if (loginAdmin == 1)
             {
@@ -46,13 +45,13 @@ int main()
         }
         else if (menu == 2)
         {
-
-            Acc:
+        	Acc:
             printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
+            fflush(stdin);
             scanf("%c", &acc);
             if (acc == 'Y' || acc == 'y')
             { //if user already have account
-                loginUser:
+            	loginUser:
                 loginUser = loginUserAcc();
                 if (loginUser == 1)
                 {
@@ -68,7 +67,7 @@ int main()
             else
             { //if user don't have account
                 createUserAcc();
-                goto Acc;
+                //goto Acc;
             }
         }
         else if (menu == 3)
@@ -81,6 +80,5 @@ int main()
         }
         printf("\n|+| Press enter to continue...");
     } while (getchar());
-    return 0;
 }
 //END MAIN FUNCTION
