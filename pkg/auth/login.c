@@ -1,4 +1,8 @@
 #include "login.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 int hashValue(char *pass, int size)
 {
@@ -31,7 +35,7 @@ int loginAdminAcc()
     gets(ID);
     printf("|*| Masukkan password : ");
     fflush(stdin);
-	gets(password);
+    gets(password);
     if (strcmp(ID, "admin") == 0 && strcmp(password, "admin") == 0)
     {
         printf("|*| Login Sukses!\n");
@@ -40,7 +44,8 @@ int loginAdminAcc()
     else
     {
         printf("|+| Username atau Password salah!\n");
-        printf("|*| "); system("pause");
+        printf("|*| ");
+        system("pause");
         return 0;
     }
 }
@@ -138,7 +143,8 @@ int loginUserAcc()
     if (token == NULL)
     {
         printf("|+| Username atau Password salah!\n");
-        printf("|*| "); system("pause");
+        printf("|*| ");
+        system("pause");
         return 0;
     }
 }

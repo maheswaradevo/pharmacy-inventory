@@ -1,4 +1,7 @@
 #include "adminmode.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int adminMode()
 {
@@ -6,7 +9,7 @@ int adminMode()
     int menu, pilih;
     while (1)
     {
-    	system("cls");
+        system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
@@ -38,8 +41,9 @@ int adminMode()
             exit(0);
         default:
             printf("|*| Input tidak ada dalam menu!\n");
-			printf("|*| "); system("pause");
-		}
+            printf("|*| ");
+            system("pause");
+        }
     }
     return 0;
 }

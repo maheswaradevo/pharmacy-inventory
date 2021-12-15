@@ -6,11 +6,4 @@
 #include "stack.c"
 #define MAX 50
 
-void initiate();
-int isEmpty();
-int isFull();
-void push(char itemName[255], int date, int month, int year);
-void pop();
-void display();
-
 #endif
