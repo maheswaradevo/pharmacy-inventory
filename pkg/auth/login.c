@@ -1,11 +1,11 @@
-#include "login.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
-#include "../../adt/adt.h"
 #include <malloc.h>
+#include "login.h"
+#include "../../adt/adt.h"
 
 int hashValue(char *pass, int size)
 {
@@ -51,12 +51,9 @@ void displayHashTable()
 
 int readFileForHashTable()
 {
-    int counter = 0;
+    int counter = 0, token;
     char *ptr;
-    char tmp[50];
-    char password[50];
-    int token;
-    int count = 0;
+    char tmp[50], password[50];
     FILE *fp = fopen("accountForUser.txt", "r");
     if (fp == NULL)
     {
