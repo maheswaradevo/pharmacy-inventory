@@ -22,7 +22,9 @@ int adminMode()
         printf("|*|-------------------------------|*|\n");
         printf("|*|      3. LIHAT DATA OBAT       |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|      4. EXIT                  |*|\n");
+        printf("|*|      4. LIHAT DATA USER       |*|\n");
+        printf("|*|-------------------------------|*|\n");
+        printf("|*|      5. EXIT                  |*|\n");
         printf("|*|-------------------------------|*|\n");
         printf("|*| Pilih Menu : ");
         scanf("%d", &pilih);
@@ -46,6 +48,10 @@ int adminMode()
             display();
             break;
         case 4:
+            //menu 4
+            readFileForHashTable();
+            displayHashTable();
+        case 5:
             exit(0);
         default:
             printf("|*| Input tidak ada dalam menu!\n");

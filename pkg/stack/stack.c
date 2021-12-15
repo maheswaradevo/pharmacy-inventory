@@ -50,7 +50,7 @@ void pop()
     }
 }
 
-void display()
+void displayStack()
 {
     if (isEmpty())
         printf("Stack masih kosong!\n");
