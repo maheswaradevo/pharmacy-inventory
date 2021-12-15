@@ -1,4 +1,5 @@
 #include "../../adt/adt.h"
+#include "stack.h"
 
 void initiate()
 {
