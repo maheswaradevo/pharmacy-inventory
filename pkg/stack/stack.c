@@ -63,3 +63,17 @@ void display()
             printf("Expired : %d/%d/%d\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
         }
     }
+
+void Bubblesort()
+{
+    for(int i = s.top; i >= 0; i--)
+    {
+		for(j = s.top - 1; j >  0; j--)
+		if(b[j].itemName > b[j + 1].itemName)
+        {
+			int temp = b[j].itemName;
+			b[j].itemName = b[j + 1].itemName;
+			b[j + 1].itemName = temp;
+		}
+	}
+}
