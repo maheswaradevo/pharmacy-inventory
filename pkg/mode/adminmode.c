@@ -35,7 +35,7 @@ int adminMode()
             printf("|*| Input tanggal kadaluwarsa obat (format : dd/mm/yyyy) : ");
             scanf("%d %d %d", &tgl, &bln, &thn);
             push(&itemName, tgl, bln, thn);
-            printf("|*| Sukses input data obat! : ");
+            printf("|*| Sukses input data obat\n");
             break;
         case 2:
             //menu 2

@@ -36,7 +36,6 @@ void push(char *itemName, int date, int month, int year)
         b[s.top].exp.date = date;
         b[s.top].exp.month = month;
         b[s.top].exp.year = year;
-        printf("Barang %s sudah dimasukkan", itemName);
     }
 }
 
