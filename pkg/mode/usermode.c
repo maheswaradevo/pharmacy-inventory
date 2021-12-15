@@ -12,9 +12,9 @@ int userMode()
         printf("|*|-------------------------------|*|\n");
         printf("|*|--------------USER-------------|*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        1. LIHAT DATA OBAT     |*|\n");
+        printf("|*|       1. LIHAT DATA OBAT      |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|        2. EXIT                |*|\n");
+        printf("|*|       2. EXIT TO MAIN MENU    |*|\n");
         printf("|*|-------------------------------|*|\n");
         printf("|*| Pilih Menu :");
         scanf("%d", &pilih);
@@ -23,9 +23,11 @@ int userMode()
         {
         case 1:
             //menu 1
+            printf("|*| ");
+            system("pause");
             break;
         case 2:
-            exit(0);
+            return 0;
         default:
             printf("|*| Input tidak ada dalam menu!\n");
 			printf("|*| "); system("pause");
