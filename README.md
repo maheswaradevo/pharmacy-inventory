@@ -9,5 +9,5 @@ Sebagai final project untuk mata kuliah Praktikum Struktur Data pada Semester 3.
 1. [Pande Putu Devo Punda Maheswara](https://github.com/maheswaradevo/) (2008561107)
 2. [Ida Bagus Made Surya Widnyana](https://github.com/odesurya/) (2008561092)
 3. [I Made Arthya Andika Putra](https://github.com/mistykz/) (2008561052)
-4. I Ketut Oning Pusparama(https://github.com/iktoning/) (2008561017)
+4. [I Ketut Oning Pusparama](https://github.com/iktoning/) (2008561017)
 5. Wahyu Vidiadivani (2008561082)
