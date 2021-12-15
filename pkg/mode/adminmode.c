@@ -11,7 +11,6 @@ int adminMode()
     int menu, pilih, tgl, bln, thn;
     while (1)
     {
-        system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
