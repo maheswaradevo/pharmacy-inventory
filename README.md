@@ -2,6 +2,7 @@
 
 Program inventory data obat pada sebuah apotek menggunakan bahasa C
 Sebagai final project untuk mata kuliah Praktikum Struktur Data pada Semester 3.
+
 Program Pharmacy inventory,terdapat informasi dari  obat-obatan yang terdapat pada data inventory  apotek tersebut yaitu misalnya : nama obat, jenis  obat, dan tanggal kadaluwarsa
 
 
