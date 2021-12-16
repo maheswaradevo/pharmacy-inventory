@@ -63,3 +63,65 @@ void displayStack()
         }
     }
 }
+
+// void Swap(int *x, int *y)
+// {
+//     int temp = *x;
+//     *x = *y;
+//     *y = temp;
+// }
+
+void Bubblesort()
+{
+    char temp[255];
+    int temp1, temp2, temp3;
+    for (int i = s.top; i >= 0; i--)
+    {
+        for (int j = s.top; i >= 0; i--)
+        {
+            if (b[j].itemName > b[j + 1].itemName)
+            {
+                strcpy(temp, b[j].itemName);
+                temp1 = b[j].exp.date;
+                temp2 = b[j].exp.month;
+                temp3 = b[j].exp.year;
+
+                strcpy(b[j].itemName, b[j + 1].itemName);
+                b[j].exp.date = b[j + 1].exp.date;
+                b[j].exp.month = b[j + 1].exp.month;
+                b[j].exp.year = b[j + 1].exp.year;
+
+                strcpy(b[j + 1].itemName, temp);
+                b[j + 1].exp.date = temp1;
+                b[j + 1].exp.month = temp2;
+                b[j + 1].exp.year = temp3;
+            }
+        }
+    }
+}
+
+// int partition(dateExp arr[], int low, int high)
+// {
+//     int pivot = arr[high];
+//     int i = (low - 1);
+//     for (int j = low; j <= high - 1; j++)
+//     {
+//         if (arr[j] <= pivot)
+//         {
+//             i++;
+//             Swap(&arr[i].exp.date, &arr[j].date);
+//         }
+//     }
+//     Swap(&arr[i + 1].exp.date, &arr[high].exp.date);
+//     return (i + 1);
+// }
+
+// void Quicksort(int arr[], int low, int high)
+// {
+//     if (low < high)
+//     {
+//         int pi = partition(arr, low, high);
+//         Quicksort(arr, low, pi - 1);
+//         Quicksort(arr, pi + 1, high);
+//     }
+// }
