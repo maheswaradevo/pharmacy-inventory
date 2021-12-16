@@ -10,12 +10,10 @@
 //START OF MAIN FUNCTION
 int main()
 {
-    initiate();
     int menu, loginAdmin, loginUser;
     char acc, quit;
     while (1)
     {
-        system("cls");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |   PHARMACY INVENTORY  |    |+|\n");
         printf("|+|----------------------------------|+|\n");
@@ -31,8 +29,9 @@ int main()
         scanf("%d", &menu);
 
         //Admin
-        if (menu == 1)
+        switch (menu)
         {
+        case 1:
         loginAdmin:
             loginAdmin = loginAdminAcc();
             if (loginAdmin == 1)
@@ -45,10 +44,9 @@ int main()
                 //Login failed and go to login again
                 goto loginAdmin;
             }
-        }
-        else if (menu == 2)
-        {
-        Acc:
+            break;
+        case 2:
+            printf("Hello\n");
             printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
             fflush(stdin);
             scanf("%c", &acc);
@@ -71,9 +69,8 @@ int main()
             { //if user don't have account
                 createUserAcc();
             }
-        }
-        else if (menu == 3)
-        {
+            break;
+        case 3:
             printf("|+| Apakah anda yakin untuk keluar dari program? (Y/N) : ");
             fflush(stdin);
             scanf("%c", &quit);
@@ -92,9 +89,8 @@ int main()
                 printf("|+| ");
                 system("pause");
             }
-        }
-        else
-        {
+            break;
+        default:
             printf("|+| Input tidak ada dalam menu!\n");
             printf("|+| ");
             system("pause");

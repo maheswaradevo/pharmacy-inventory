@@ -6,6 +6,7 @@
 
 int adminMode()
 {
+    initiate();
     char itemName;
     int menu, pilih, tgl, bln, thn;
     while (1)
@@ -57,8 +58,8 @@ int adminMode()
             break;
         case 3:
             //menu 3
+            displayStack();
             Bubblesort(s.counter);
-            // displayStack();
             printf("|*| ");
             system("pause");
             break;

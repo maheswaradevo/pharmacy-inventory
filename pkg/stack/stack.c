@@ -98,7 +98,8 @@ void Bubblesort(int size)
             }
         }
     }
-    printf("Setelah sorting\n");
+    printf("|*| Setelah Disorting :\n");
+
     for (int i = 1; i <= s.counter; i++)
     {
         printf("|*| Item Name : %s\n", b[i].itemName);
@@ -106,28 +107,32 @@ void Bubblesort(int size)
     }
 }
 
-// int partition(dateExp arr[], int low, int high)
+// int partition(int low, int high)
 // {
-//     int pivot = arr[high];
+//     int pivot = b[high];
 //     int i = (low - 1);
 //     for (int j = low; j <= high - 1; j++)
 //     {
-//         if (arr[j] <= pivot)
+//         if (b[j] <= pivot)
 //         {
 //             i++;
-//             Swap(&arr[i].exp.date, &arr[j].date);
+//             Swap(&b[i].exp.date, &b[j].exp.date);
+//             Swap(&b[i].exp.month, &b[j].exp.month);
+//             Swap(&b[i].exp.year, &b[j].exp.year);
 //         }
 //     }
 //     Swap(&arr[i + 1].exp.date, &arr[high].exp.date);
+//     Swap(&arr[i + 1].exp.month, &arr[high].exp.month);
+//     Swap(&arr[i + 1].exp.year, &arr[high].exp.year);
 //     return (i + 1);
 // }
 
-// void Quicksort(int arr[], int low, int high)
+// void Quicksort(int low, int high)
 // {
 //     if (low < high)
 //     {
-//         int pi = partition(arr, low, high);
-//         Quicksort(arr, low, pi - 1);
-//         Quicksort(arr, pi + 1, high);
+//         int pi = partition(b, low, high);
+//         Quicksort(b, low, pi - 1);
+//         Quicksort(b, pi + 1, high);
 //     }
 // }
