@@ -14,7 +14,7 @@ int hashValue(char *pass, int size)
     {
         value += pass[i];
     }
-    return value & size;
+    return value % size;
 }
 
 void insertToHashTable(char *pass, int token)
