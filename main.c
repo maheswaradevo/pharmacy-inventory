@@ -33,7 +33,7 @@ int main()
         //Admin
         if (menu == 1)
         {
-        	loginAdmin:
+        loginAdmin:
             loginAdmin = loginAdminAcc();
             if (loginAdmin == 1)
             {
@@ -48,13 +48,13 @@ int main()
         }
         else if (menu == 2)
         {
-        	Acc:
+        Acc:
             printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
             fflush(stdin);
             scanf("%c", &acc);
             if (acc == 'Y' || acc == 'y')
             { //if user already have account
-            	loginUser:
+            loginUser:
                 loginUser = loginUserAcc();
                 if (loginUser == 1)
                 {
@@ -74,30 +74,33 @@ int main()
         }
         else if (menu == 3)
         {
-        	printf("|+| Apakah anda yakin untuk keluar dari program? (Y/N) : ");
-        	fflush(stdin);
+            printf("|+| Apakah anda yakin untuk keluar dari program? (Y/N) : ");
+            fflush(stdin);
             scanf("%c", &quit);
-            if (quit == 'Y' || quit == 'y'){
-            	printf("|+| Terima kasih sudah menggunakan program ini!\n\n");
-            	exit(0);	
-			}
-			else if (quit == 'N' || quit == 'n'){
-				continue;
-			}
-			else{
-				printf("|+| Input yang anda masukkan tidak valid!\n");
-				printf("|+| ");
-            	system("pause");
-			}
+            if (quit == 'Y' || quit == 'y')
+            {
+                printf("|+| Terima kasih sudah menggunakan program ini!\n\n");
+                exit(0);
+            }
+            else if (quit == 'N' || quit == 'n')
+            {
+                continue;
+            }
+            else
+            {
+                printf("|+| Input yang anda masukkan tidak valid!\n");
+                printf("|+| ");
+                system("pause");
+            }
         }
         else
         {
             printf("|+| Input tidak ada dalam menu!\n");
             printf("|+| ");
-        	system("pause");
+            system("pause");
         }
     }
-    
+
     return 0;
 }
 //END MAIN FUNCTION

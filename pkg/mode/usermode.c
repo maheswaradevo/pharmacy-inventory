@@ -3,7 +3,7 @@
 int userMode()
 {
     system("cls");
-    int menu, pilih;
+    int menu, pilih, ch;
     while (1)
     {
         system("cls");

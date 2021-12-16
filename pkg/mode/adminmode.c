@@ -10,7 +10,7 @@ int adminMode()
     int menu, pilih, tgl, bln, thn;
     while (1)
     {
-    	system("cls");
+        system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
@@ -37,9 +37,9 @@ int adminMode()
             printf("|*| Input tanggal kadaluwarsa obat (format : dd, contoh : 01) : ");
             scanf("%d", &tgl);
             printf("|*| Input bulan kadaluwarsa obat (format : mm, contoh : 09) : ");
-            scanf("%d", &tgl);
+            scanf("%d", &bln);
             printf("|*| Input tahun kadaluwarsa obat (format : yyyy, contoh : 2023) : ");
-            scanf("%d", &tgl);
+            scanf("%d", &thn);
             push(&itemName, tgl, bln, thn);
             printf("|*| Sukses input data obat!\n");
             printf("|*| ");
