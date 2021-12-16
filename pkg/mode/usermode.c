@@ -46,7 +46,7 @@ int userMode()
                 break;
             case 2:
                 //menu 2
-                Bubblesort();
+                Bubblesort(s.counter);
                 displayStack();
                 break;
             }

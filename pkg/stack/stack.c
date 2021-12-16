@@ -71,15 +71,15 @@ void displayStack()
 //     *y = temp;
 // }
 
-void Bubblesort()
+void Bubblesort(int size)
 {
     char temp[255];
     int temp1, temp2, temp3;
-    for (int i = s.top; i >= 0; i--)
+    for (int i = 0; i <= size - 1; i++)
     {
-        for (int j = s.top; i >= 0; i--)
+        for (int j = 0; j <= size - i - 1; j++)
         {
-            if (b[j].itemName > b[j + 1].itemName)
+            if (strcmp(b[j].itemName, b[j + 1].itemName) > 0)
             {
                 strcpy(temp, b[j].itemName);
                 temp1 = b[j].exp.date;
@@ -97,6 +97,12 @@ void Bubblesort()
                 b[j + 1].exp.year = temp3;
             }
         }
+    }
+    printf("Setelah sorting\n");
+    for (int i = 1; i <= s.counter; i++)
+    {
+        printf("|*| Item Name : %s\n", b[i].itemName);
+        printf("|*| Expired : %d/%d/%d\n\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
     }
 }
 

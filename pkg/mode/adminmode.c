@@ -42,6 +42,7 @@ int adminMode()
             printf("|*| Input tahun kadaluwarsa obat (format : yyyy, contoh : 2023) : ");
             scanf("%d", &thn);
             push(&itemName, tgl, bln, thn);
+            s.counter++;
             printf("|*| Sukses input data obat!\n");
             printf("|*| ");
             system("pause");
@@ -56,7 +57,8 @@ int adminMode()
             break;
         case 3:
             //menu 3
-            displayStack();
+            Bubblesort(s.counter);
+            // displayStack();
             printf("|*| ");
             system("pause");
             break;

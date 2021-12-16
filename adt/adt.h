@@ -34,6 +34,7 @@ struct dataItem b[50];
 struct stack
 {
     int top;
+    int counter;
 };
 struct stack s;
 
