@@ -5,6 +5,16 @@
 #include <stdlib.h>
 #define SIZE 50
 
+struct Person
+{
+    char username[255];
+    char password[255];
+    int token;
+};
+struct Person p;
+struct Person perArray[20];
+struct Person *hashArray[SIZE];
+
 struct dateExp
 {
     int date;

@@ -9,6 +9,7 @@
 int main()
 {
     initiate();
+    s.counter = 0;
     int menu, loginAdmin, loginUser;
     char acc, quit;
 
@@ -86,6 +87,7 @@ int main()
                     case 2:
                         //menu 2
                         pop();
+                        s.counter--;
                         printf("|*| ");
                         system("pause");
                         system("cls");
