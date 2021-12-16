@@ -71,7 +71,7 @@ void displayStack()
 //     *y = temp;
 // }
 
-void Bubblesort(int size)
+void bubbleSortName(int size)
 {
     char temp[255];
     int temp1, temp2, temp3;
@@ -98,9 +98,113 @@ void Bubblesort(int size)
             }
         }
     }
-    printf("|*| Setelah Disorting :\n");
+}
 
-    for (int i = 1; i <= s.counter; i++)
+void displaySortedName(int size)
+{
+    for (int i = 1; i <= size; i++)
+    {
+        printf("|*| Item Name : %s\n", b[i].itemName);
+        printf("|*| Expired : %d/%d/%d\n\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
+    }
+}
+
+void bubbleSortDate(int size)
+{
+    int temp;
+    char temp2[255];
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            if (b[j].exp.year > b[i].exp.year)
+            {
+                temp = b[j].exp.year;
+                strcpy(temp2, b[j].itemName);
+                b[j].exp.year = b[i].exp.year;
+                strcpy(b[j].itemName, b[i].itemName);
+                b[i].exp.year = temp;
+                strcpy(b[i].itemName, temp2);
+
+                temp = b[j].exp.month;
+                strcpy(temp2, b[j].itemName);
+                b[j].exp.month = b[i].exp.month;
+                strcpy(b[j].itemName, b[i].itemName);
+                b[i].exp.month = temp;
+                strcpy(b[i].itemName, temp2);
+
+                temp = b[j].exp.date;
+                strcpy(temp2, b[j].itemName);
+                b[j].exp.date = b[i].exp.date;
+                strcpy(b[j].itemName, b[i].itemName);
+                b[i].exp.date = temp;
+                strcpy(b[i].itemName, temp2);
+            }
+            else
+            {
+                if (b[j].exp.year == b[i].exp.year)
+                {
+                    if (b[j].exp.month > b[i].exp.month)
+                    {
+                        temp = b[j].exp.year;
+                        strcpy(temp2, b[j].itemName);
+                        b[j].exp.year = b[i].exp.year;
+                        strcpy(b[j].itemName, b[i].itemName);
+                        b[i].exp.year = temp;
+                        strcpy(b[i].itemName, temp2);
+
+                        temp = b[j].exp.month;
+                        strcpy(temp2, b[j].itemName);
+                        b[j].exp.month = b[i].exp.month;
+                        strcpy(b[j].itemName, b[i].itemName);
+                        b[i].exp.month = temp;
+                        strcpy(b[i].itemName, temp2);
+
+                        temp = b[j].exp.date;
+                        strcpy(temp2, b[j].itemName);
+                        b[j].exp.date = b[i].exp.date;
+                        strcpy(b[j].itemName, b[i].itemName);
+                        b[i].exp.date = temp;
+                        strcpy(b[i].itemName, temp2);
+                    }
+                    else
+                    {
+                        if (b[j].exp.month == b[i].exp.month)
+                        {
+                            if (b[j].exp.date > b[i].exp.date)
+                            {
+                                temp = b[j].exp.year;
+                                strcpy(temp2, b[j].itemName);
+                                b[j].exp.year = b[i].exp.year;
+                                strcpy(b[j].itemName, b[i].itemName);
+                                b[i].exp.year = temp;
+                                strcpy(b[i].itemName, temp2);
+
+                                temp = b[j].exp.month;
+                                strcpy(temp2, b[j].itemName);
+                                b[j].exp.month = b[i].exp.month;
+                                strcpy(b[j].itemName, b[i].itemName);
+                                b[i].exp.month = temp;
+                                strcpy(b[i].itemName, temp2);
+
+                                temp = b[j].exp.date;
+                                strcpy(temp2, b[j].itemName);
+                                b[j].exp.date = b[i].exp.date;
+                                strcpy(b[j].itemName, b[i].itemName);
+                                b[i].exp.date = temp;
+                                strcpy(b[i].itemName, temp2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void displaySortedDate(int size)
+{
+    for (int i = 0; i < size; i++)
     {
         printf("|*| Item Name : %s\n", b[i].itemName);
         printf("|*| Expired : %d/%d/%d\n\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
