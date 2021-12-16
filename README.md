@@ -1,6 +1,6 @@
 # Pharmacy Inventory
 
-Program inventory/stok persediaan pada sebuah apotek menggunakan bahasa C
+Program inventory data obat pada sebuah apotek menggunakan bahasa C
 Sebagai final project untuk mata kuliah Praktikum Struktur Data pada Semester 3.
 
 **Dibuat oleh Kelompok B-1, Program Studi Informatika, Fakultas MIPA, Universitas Udayana**
@@ -15,3 +15,5 @@ Sebagai final project untuk mata kuliah Praktikum Struktur Data pada Semester 3.
 4. [I Ketut Oning Pusparama](https://github.com/iktoning/) (2008561017)
 >>>>>>> main
 5. Wahyu Vidiadivani (2008561082)
+
+*Note : belum dapat menginput stok persediaan, hanya dapat menginput nama dari data obat tersebut.*

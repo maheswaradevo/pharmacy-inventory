@@ -4,4 +4,6 @@
 #include <stdio.h>
 #include "adminmode.c"
 
+int adminMode();
+
 #endif

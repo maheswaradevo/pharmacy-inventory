@@ -38,14 +38,14 @@ void displayHashTable()
     {
         if (hashArray[i] != NULL)
         {
-            printf("Tabel ke-%d\n", i + 1);
-            printf("ID       :  %d\n", hashArray[i]->token);
-            printf("Password :  %s\n", hashArray[i]->password);
+            printf("|*| Tabel ke-%d\n", i + 1);
+            printf("|*| ID       :  %d\n", hashArray[i]->token);
+            printf("|*| Password :  %s\n\n", hashArray[i]->password);
         }
         else
         {
-            printf("ID       : [-----]\n");
-            printf("Password : [-----]\n");
+            printf("|*| ID       : [-----]\n");
+            printf("|*| Password : [-----]\n\n");
         }
     }
 }
@@ -151,6 +151,8 @@ int createUserAcc()
         if (strcmp(passRepeat, password) == 0)
         {
             printf("|*| Akun berhasil dibuat!\n");
+            printf("|*| ");
+            system("pause");
             break;
         }
         else

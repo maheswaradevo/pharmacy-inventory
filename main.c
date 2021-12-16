@@ -12,18 +12,20 @@ int main()
 {
     initiate();
     int menu, loginAdmin, loginUser;
-    char acc = 'y';
-    do
+    char acc, quit;
+    while (1)
     {
-        // system("cls");
+        system("cls");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |   PHARMACY INVENTORY  |    |+|\n");
+        printf("|+|----------------------------------|+|\n");
+        printf("|+|     |       MAIN MENU       |    |+|\n");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |    1. ADMIN           |    |+|\n");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |    2. USER            |    |+|\n");
         printf("|+|----------------------------------|+|\n");
-        printf("|+|     |    3. EXIT            |    |+|\n");
+        printf("|+|     |    3. EXIT PROGRAM    |    |+|\n");
         printf("|+|----------------------------------|+|\n");
         printf("|+| Pilih Menu : ");
         scanf("%d", &menu);
@@ -68,18 +70,34 @@ int main()
             else
             { //if user don't have account
                 createUserAcc();
-                //goto Acc;
             }
         }
         else if (menu == 3)
         {
-            exit(0);
+        	printf("|+| Apakah anda yakin untuk keluar dari program? (Y/N) : ");
+        	fflush(stdin);
+            scanf("%c", &quit);
+            if (quit == 'Y' || quit == 'y'){
+            	printf("|+| Terima kasih sudah menggunakan program ini!\n\n");
+            	exit(0);	
+			}
+			else if (quit == 'N' || quit == 'n'){
+				continue;
+			}
+			else{
+				printf("|+| Input yang anda masukkan tidak valid!\n");
+				printf("|+| ");
+            	system("pause");
+			}
         }
         else
         {
             printf("|+| Input tidak ada dalam menu!\n");
+            printf("|+| ");
+        	system("pause");
         }
-        printf("\n|+| Press enter to continue...");
-    } while (getchar());
+    }
+    
+    return 0;
 }
 //END MAIN FUNCTION

@@ -6,25 +6,25 @@
 
 int adminMode()
 {
-    system("cls");
     char itemName;
     int menu, pilih, tgl, bln, thn;
     while (1)
     {
+    	system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
         printf("|*|-------------ADMIN-------------|*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|      1. MENAMBAH STOK OBAT    |*|\n");
+        printf("|*|      1. MENAMBAH DATA OBAT    |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|      2. MENGAMBIL STOK OBAT   |*|\n");
+        printf("|*|      2. MENGAMBIL DATA OBAT   |*|\n");
         printf("|*|-------------------------------|*|\n");
         printf("|*|      3. LIHAT DATA OBAT       |*|\n");
         printf("|*|-------------------------------|*|\n");
         printf("|*|      4. LIHAT DATA USER       |*|\n");
         printf("|*|-------------------------------|*|\n");
-        printf("|*|      5. EXIT                  |*|\n");
+        printf("|*|      5. EXIT TO MAIN MENU     |*|\n");
         printf("|*|-------------------------------|*|\n");
         printf("|*| Pilih Menu : ");
         scanf("%d", &pilih);
@@ -34,25 +34,37 @@ int adminMode()
         case 1:
             printf("|*| Input nama obat : ");
             scanf("%s", &itemName);
-            printf("|*| Input tanggal kadaluwarsa obat (format : dd/mm/yyyy) : ");
-            scanf("%d %d %d", &tgl, &bln, &thn);
+            printf("|*| Input tanggal kadaluwarsa obat (format : dd, contoh : 01) : ");
+            scanf("%d", &tgl);
+            printf("|*| Input bulan kadaluwarsa obat (format : mm, contoh : 09) : ");
+            scanf("%d", &tgl);
+            printf("|*| Input tahun kadaluwarsa obat (format : yyyy, contoh : 2023) : ");
+            scanf("%d", &tgl);
             push(&itemName, tgl, bln, thn);
-            printf("|*| Sukses input data obat\n");
+            printf("|*| Sukses input data obat!\n");
+            printf("|*| ");
+            system("pause");
             break;
         case 2:
             //menu 2
             pop();
+            printf("|*| ");
+            system("pause");
             break;
         case 3:
             //menu 3
-            display();
+            printf("|*| ");
+            system("pause");
             break;
         case 4:
             //menu 4
             readFileForHashTable();
             displayHashTable();
+            printf("|*| ");
+            system("pause");
+            break;
         case 5:
-            exit(0);
+            return 0;
         default:
             printf("|*| Input tidak ada dalam menu!\n");
             printf("|*| ");
