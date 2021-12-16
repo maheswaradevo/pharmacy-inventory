@@ -3,17 +3,24 @@
 #include <string.h>
 #include "pkg/stack/stack.h"
 #include "pkg/auth/login.h"
-#include "pkg/mode/adminmode.h"
-#include "pkg/mode/usermode.h"
+//#include "pkg/mode/adminmode.h"
+//#include "pkg/mode/usermode.h"
 #include "adt/adt.h"
 
 //START OF MAIN FUNCTION
 int main()
 {
+	initiate();
     int menu, loginAdmin, loginUser;
     char acc, quit;
+    
+    char itemName;
+    int pilih, pilih2, ch, tgl, bln, thn;
+    
     while (1)
     {
+    	mainmenu:
+    	system("cls");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |   PHARMACY INVENTORY  |    |+|\n");
         printf("|+|----------------------------------|+|\n");
@@ -32,12 +39,81 @@ int main()
         switch (menu)
         {
         case 1:
-        loginAdmin:
+        	loginAdmin:
             loginAdmin = loginAdminAcc();
             if (loginAdmin == 1)
             {
                 //Login success and go to admin menu
-                adminMode();
+                while (1)
+    			{
+			    	system("cls");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|       PHARMACY INVENTORY      |*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|-------------ADMIN-------------|*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|      1. MENAMBAH DATA OBAT    |*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|      2. MENGAMBIL DATA OBAT   |*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|      3. LIHAT DATA OBAT       |*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|      4. LIHAT DATA USER       |*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*|      5. EXIT TO MAIN MENU     |*|\n");
+			        printf("|*|-------------------------------|*|\n");
+			        printf("|*| Pilih Menu : ");
+			        scanf("%d", &pilih);
+			
+			        switch (pilih)
+			        {
+			        case 1:
+			            printf("|*| Input nama obat : ");
+			            fflush(stdin);
+			            scanf("%[^\n]s", &itemName);
+			            fflush(stdin);
+			            printf("|*| Input tanggal kadaluwarsa obat (format : dd, contoh : 01) : ");
+			            scanf("%d", &tgl);
+			            printf("|*| Input bulan kadaluwarsa obat (format : mm, contoh : 09) : ");
+			            scanf("%d", &bln);
+			            printf("|*| Input tahun kadaluwarsa obat (format : yyyy, contoh : 2023) : ");
+			            scanf("%d", &thn);
+			            push(&itemName, tgl, bln, thn);
+			            s.counter++;
+			            printf("|*| Sukses input data obat!\n");
+			            printf("|*| ");
+			            system("pause");
+			            system("cls");
+			            break;
+			        case 2:
+			            //menu 2
+			            pop();
+			            printf("|*| ");
+			            system("pause");
+			            system("cls");
+			            break;
+			        case 3:
+			            //menu 3
+			            displayStack();
+			            Bubblesort(s.counter);
+			            printf("|*| ");
+			            system("pause");
+			            break;
+			        case 4:
+			            //menu 4
+			            readFileForHashTable();
+			            displayHashTable();
+			            printf("|*| ");
+			            system("pause");
+			            break;
+			        case 5:
+			            goto mainmenu;
+			        default:
+			            printf("|*| Input tidak ada dalam menu!\n");
+			            printf("|*| ");
+			            system("pause");
+			        }
+			    }
             }
             else
             {
@@ -46,7 +122,7 @@ int main()
             }
             break;
         case 2:
-            printf("Hello\n");
+            printf("|+| Hello!\n");
             printf("|+| Apakah anda sudah memiliki akun? (Y/N) : ");
             fflush(stdin);
             scanf("%c", &acc);
@@ -57,7 +133,61 @@ int main()
                 if (loginUser == 1)
                 {
                     //Login success and go to user menu
-                    userMode();
+                    while (1)
+				    {
+				        system("cls");
+				        printf("|*|-------------------------------|*|\n");
+				        printf("|*|       PHARMACY INVENTORY      |*|\n");
+				        printf("|*|-------------------------------|*|\n");
+				        printf("|*|--------------USER-------------|*|\n");
+				        printf("|*|-------------------------------|*|\n");
+				        printf("|*|       1. LIHAT DATA OBAT      |*|\n");
+				        printf("|*|-------------------------------|*|\n");
+				        printf("|*|       2. EXIT TO MAIN MENU    |*|\n");
+				        printf("|*|-------------------------------|*|\n");
+				        printf("|*| Pilih Menu :");
+				        scanf("%d", &pilih2);
+				
+				        switch (pilih2)
+				        {
+				       		case 1:
+					            system("cls");
+					            printf("|*|-------------------------------|*|\n");
+					            printf("|*|       PHARMACY INVENTORY      |*|\n");
+					            printf("|*|-------------------------------|*|\n");
+					            printf("|*|--------------USER-------------|*|\n");
+					            printf("|*|-------------------------------|*|\n");
+					            printf("|*|        1. SORT (DATE)         |*|\n");
+					            printf("|*|-------------------------------|*|\n");
+					            printf("|*|        2. SORT (NAME)         |*|\n");
+					            printf("|*|-------------------------------|*|\n");
+					            printf("|*|        3. EXIT                |*|\n");
+					            printf("|*|-------------------------------|*|\n");
+					            printf("|*| Pilih Menu :");
+					            scanf("%d", &ch);
+					            switch (ch)
+					            {
+					            case 1:
+					                //menu 1
+					
+					                break;
+					            case 2:
+					                //menu 2
+					                Bubblesort(s.counter);
+					                displayStack();
+					                printf("|*| ");
+				            		system("pause");
+					                break;
+					            }
+					            break;
+				        	case 2:
+				            	goto mainmenu;
+				        	default:
+				            	printf("|*| Input tidak ada dalam menu!\n");
+				            	printf("|*| ");
+				            	system("pause");
+				        }
+				    }
                 }
                 else
                 {
