@@ -1,8 +1,8 @@
-#include "../../adt/adt.h"
-#include "stack.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "stack.h"
+#include "../../adt/adt.h"
 #define MAX 50
 
 void initiate()
@@ -63,13 +63,6 @@ void displayStack()
         }
     }
 }
-
-// void Swap(int *x, int *y)
-// {
-//     int temp = *x;
-//     *x = *y;
-//     *y = temp;
-// }
 
 void bubbleSortName(int size)
 {
@@ -210,33 +203,3 @@ void displaySortedDate(int size)
         printf("|*| Expired : %d/%d/%d\n\n", b[i].exp.date, b[i].exp.month, b[i].exp.year);
     }
 }
-
-// int partition(int low, int high)
-// {
-//     int pivot = b[high];
-//     int i = (low - 1);
-//     for (int j = low; j <= high - 1; j++)
-//     {
-//         if (b[j] <= pivot)
-//         {
-//             i++;
-//             Swap(&b[i].exp.date, &b[j].exp.date);
-//             Swap(&b[i].exp.month, &b[j].exp.month);
-//             Swap(&b[i].exp.year, &b[j].exp.year);
-//         }
-//     }
-//     Swap(&arr[i + 1].exp.date, &arr[high].exp.date);
-//     Swap(&arr[i + 1].exp.month, &arr[high].exp.month);
-//     Swap(&arr[i + 1].exp.year, &arr[high].exp.year);
-//     return (i + 1);
-// }
-
-// void Quicksort(int low, int high)
-// {
-//     if (low < high)
-//     {
-//         int pi = partition(b, low, high);
-//         Quicksort(b, low, pi - 1);
-//         Quicksort(b, pi + 1, high);
-//     }
-// }
