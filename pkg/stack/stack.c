@@ -71,40 +71,42 @@ void Swap(int *x, int *y)
     *y = temp;
 }
 
-void Bubblesort()
+void Bubblesort(int arr[], int n)
 {
     for (int i = s.top; i >= 0; i--)
     {
-        for (int j = s.top - 1; j > 0; j--)
-            if (b[j].itemName > b[j + 1].itemName)
+         for (int j = s.top ; i >= 0; i--)
+        {
+            if (arr[j].itemName > arr[j + 1].itemName)
             {
-                Swap(&b[j].itemName, &b[j + 1].itemName);
+                Swap(&arr[j].itemName, &arr[j + 1].itemName);
             }
+        }
     }
 }
 
-int partition(int b[], int low, int high)
+int partition(int arr[], int low, int high)
 {
-    int pivot = b[high];
+    int pivot = arr[high];
     int i = (low - 1);
     for (int j = low; j <= high - 1; j++)
     {
-        if (b[j] <= pivot)
+        if (arr[j] <= pivot)
         {
             i++;
-            swap(&b[i].date, &b[j].date);
+            Swap(&arr[i].exp.date, &arr[j].date);
         }
     }
-    swap(&b[i + 1].date, &b[high].date);
+    Swap(&arr[i + 1].exp.date, &arr[high].exp.date);
     return (i + 1);
 }
 
-void Quicksort(int b[], int low, int high)
+void Quicksort(int arr[], int low, int high)
 {
     if (low < high)
     {
-        int pi = partition(b, low, high);
-        Quicksort(b, low, pi - 1);
-        Quicksort(b, pi + 1, high);
+        int pi = partition(arr, low, high);
+        Quicksort(arr, low, pi - 1);
+        Quicksort(arr, pi + 1, high);
     }
 }
