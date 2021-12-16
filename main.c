@@ -6,6 +6,7 @@
 #include "adt/adt.h"
 
 //START OF MAIN FUNCTION
+
 int main()
 {
     initiate();
