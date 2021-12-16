@@ -6,7 +6,7 @@ int userMode()
     int menu, pilih;
     while (1)
     {
-    	system("cls");
+        system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
@@ -23,14 +23,35 @@ int userMode()
         {
         case 1:
             //menu 1
-            printf("|*| ");
-            system("pause");
+            printf("|*|-------------------------------|*|\n");
+            printf("|*|       PHARMACY INVENTORY      |*|\n");
+            printf("|*|-------------------------------|*|\n");
+            printf("|*|--------------USER-------------|*|\n");
+            printf("|*|-------------------------------|*|\n");
+            printf("|*|        1. SORT (DATE)         |*|\n");
+            printf("|*|-------------------------------|*|\n");
+            printf("|*|        2. SORT (NAME)         |*|\n");
+            printf("|*|-------------------------------|*|\n");
+            printf("|*|        3. EXIT                |*|\n");
+            printf("|*|-------------------------------|*|\n");
+            printf("|*| Pilih Menu :");
+            scanf("%d", &ch);
+            switch (ch)
+            {
+            case 1:
+                //menu 1
+                break;
+            case 2:
+                //menu 2
+                break;
+            }
             break;
         case 2:
             return 0;
         default:
             printf("|*| Input tidak ada dalam menu!\n");
-			printf("|*| "); system("pause");
+            printf("|*| ");
+            system("pause");
         }
     }
     return 0;
