@@ -123,7 +123,7 @@ int createUserAcc()
 {
     system("cls");
     int ID, yakin;
-    char password[255], passRepeat[255], username[255];
+    char password[255], passRepeat[255];
 
     printf("|*|--------------------------------|*|\n");
     printf("|*|       PHARMACY INVENTORY       |*|\n");
@@ -137,9 +137,6 @@ int createUserAcc()
     ID = (10 * 200000) + (rand() % 100000);
     printf("|*| Create User ID Sukses!\n");
     printf("|*| ID: %d (harap ingat ID ini baik-baik!)\n", ID);
-    printf("|*| Username         : ");
-    fflush(stdin);
-    fgets(username, sizeof(username), stdin);
     printf("|*| Masukan password : ");
     fflush(stdin);
     fgets(password, sizeof(password), stdin);
