@@ -10,7 +10,6 @@ int adminMode()
     int menu, pilih, tgl, bln, thn;
     while (1)
     {
-        system("cls");
         printf("|*|-------------------------------|*|\n");
         printf("|*|       PHARMACY INVENTORY      |*|\n");
         printf("|*|-------------------------------|*|\n");
@@ -33,7 +32,9 @@ int adminMode()
         {
         case 1:
             printf("|*| Input nama obat : ");
-            scanf("%s", &itemName);
+            fflush(stdin);
+            scanf("%[^\n]s", &itemName);
+            fflush(stdin);
             printf("|*| Input tanggal kadaluwarsa obat (format : dd, contoh : 01) : ");
             scanf("%d", &tgl);
             printf("|*| Input bulan kadaluwarsa obat (format : mm, contoh : 09) : ");
@@ -44,15 +45,18 @@ int adminMode()
             printf("|*| Sukses input data obat!\n");
             printf("|*| ");
             system("pause");
+            system("cls");
             break;
         case 2:
             //menu 2
             pop();
             printf("|*| ");
             system("pause");
+            system("cls");
             break;
         case 3:
             //menu 3
+            displayStack();
             printf("|*| ");
             system("pause");
             break;
