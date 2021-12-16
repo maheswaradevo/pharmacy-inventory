@@ -10,11 +10,12 @@
 //START OF MAIN FUNCTION
 int main()
 {
+    initiate();
     int menu, loginAdmin, loginUser;
     char acc = 'y';
     do
     {
-        system("cls");
+        // system("cls");
         printf("|+|----------------------------------|+|\n");
         printf("|+|     |   PHARMACY INVENTORY  |    |+|\n");
         printf("|+|----------------------------------|+|\n");

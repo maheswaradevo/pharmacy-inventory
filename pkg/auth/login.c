@@ -1,4 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <time.h>
+#include <malloc.h>
 #include "login.h"
+#include "../../adt/adt.h"
+
 
 int hashValue(char *pass, int size)
 {
@@ -8,6 +16,70 @@ int hashValue(char *pass, int size)
         value += pass[i];
     }
     return value & size;
+}
+
+void insertToHashTable(char *pass, int token)
+{
+    struct Person *p = (struct Person *)malloc(sizeof(struct Person));
+    strcpy(p->password, pass);
+    p->token = token;
+    int hashIndex = hashValue(pass, SIZE);
+    while (hashArray[hashIndex] != NULL && hashArray[hashIndex]->password != NULL)
+    {
+        ++hashIndex;
+        hashIndex %= SIZE;
+    }
+    hashArray[hashIndex] = p;
+}
+
+void displayHashTable()
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (hashArray[i] != NULL)
+        {
+            printf("Tabel ke-%d\n", i + 1);
+            printf("ID       :  %d\n", hashArray[i]->token);
+            printf("Password :  %s\n", hashArray[i]->password);
+        }
+        else
+        {
+            printf("ID       : [-----]\n");
+            printf("Password : [-----]\n");
+        }
+    }
+}
+
+int readFileForHashTable()
+{
+    int counter = 0, token;
+    char *ptr;
+    char tmp[50], password[50];
+    FILE *fp = fopen("accountForUser.txt", "r");
+    if (fp == NULL)
+    {
+        printf("File tidak bisa dibuka\n");
+        exit(1);
+    }
+    while (fgets(tmp, sizeof(tmp), fp) != NULL)
+    {
+        if (strcmp(tmp, "###\n") == 0)
+        {
+            fgets(tmp, sizeof(tmp), fp);
+            sscanf(tmp, "%50[^\n]\n", &tmp);
+            fflush(stdin);
+            token = (int)strtol(tmp, &ptr, 10);
+            fgets(tmp, sizeof(tmp), fp);
+            sscanf(tmp, "%50[^\n]\n", &password);
+            fflush(stdin);
+            perArray[counter].token = token;
+            strcpy(perArray[counter].password, password);
+            insertToHashTable(password, token);
+            counter++;
+        }
+    }
+    fclose(fp);
+    return 0;
 }
 
 //START OF ADMIN'S FUNCTION
@@ -51,7 +123,7 @@ int createUserAcc()
 {
     system("cls");
     int ID, yakin;
-    char password[255], passRepeat[255];
+    char password[255], passRepeat[255], username[255];
 
     printf("|*|--------------------------------|*|\n");
     printf("|*|       PHARMACY INVENTORY       |*|\n");
@@ -65,9 +137,13 @@ int createUserAcc()
     ID = (10 * 200000) + (rand() % 100000);
     printf("|*| Create User ID Sukses!\n");
     printf("|*| ID: %d (harap ingat ID ini baik-baik!)\n", ID);
+    printf("|*| Username         : ");
+    fflush(stdin);
+    fgets(username, sizeof(username), stdin);
     printf("|*| Masukan password : ");
     fflush(stdin);
     fgets(password, sizeof(password), stdin);
+    insertToHashTable(password, ID);
     while (1)
     {
         printf("|*| Masukan kembali password : ");
@@ -84,11 +160,14 @@ int createUserAcc()
     }
 
     //Write to CSV File BEGIN
-    FILE *fptr;
+    FILE *fptr, *fp;
     fptr = fopen("accountForUser.csv", "a");
     fprintf(fptr, "%d,%s", ID, password);
+    fp = fopen("accountForUser.txt", "a");
+    fprintf(fp, "###\n%d\n", ID);
+    fprintf(fp, "%s", password);
     fclose(fptr);
-
+    fclose(fp);
     return 0;
 }
 
