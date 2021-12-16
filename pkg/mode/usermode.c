@@ -1,5 +1,6 @@
 #include "usermode.h"
 #include "pkg/stack/stack.h"
+#include "adt/adt.h"
 
 void Swap(int *x, int *y)
 {
@@ -8,8 +9,9 @@ void Swap(int *x, int *y)
     *y = temp;
 }
 
-void Bubblesort(char arr[], int n)
+void Bubblesort(dataItem arr[], int n)
 {
+    
     for (int i = s.top; i >= 0; i--)
     {
          for (int j = s.top ; i >= 0; i--)
@@ -22,7 +24,7 @@ void Bubblesort(char arr[], int n)
     }
 }
 
-int partition(int arr[], int low, int high)
+int partition(dateExp arr[], int low, int high)
 {
     int pivot = arr[high];
     int i = (low - 1);
